@@ -1,0 +1,11 @@
+{
+  "title": "blog",
+  "description": "First blog page",
+  "body": [
+    {
+      "type": "hero-primary",
+      "title": "Blog",
+      "subtitle": "My personal blog about frontend developing"
+    }
+  ]
+}

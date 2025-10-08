@@ -1,0 +1,11 @@
+{
+  "title": "Home",
+  "description": "Artem Yemtsev - front end developer",
+  "body": [
+    {
+      "type": "hero-primary",
+      "title": "Artem Yemtsev",
+      "subtitle": "My personal site about frontend developing"
+    }
+  ]
+}
