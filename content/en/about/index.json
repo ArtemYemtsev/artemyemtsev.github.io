@@ -1,0 +1,13 @@
+{
+  "title": "About",
+  "description": "About page",
+  "order": 1,
+  "draft": false,
+  "body": [
+    {
+      "type": "hero-primary",
+      "title": "About",
+      "subtitle": "Let's get acquainted"
+    }
+  ]
+}

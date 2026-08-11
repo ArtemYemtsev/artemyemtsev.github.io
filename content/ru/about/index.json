@@ -1,0 +1,13 @@
+{
+  "title": "Обо мне",
+  "description": "Страница «Обо мне»",
+  "order": 1,
+  "draft": false,
+  "body": [
+    {
+      "type": "hero-primary",
+      "title": "Обо мне",
+      "subtitle": "Давай познакомимся"
+    }
+  ]
+}

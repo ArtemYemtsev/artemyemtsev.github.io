@@ -1,0 +1,8 @@
+@use '../abstracts/mixins' as mix;
+@use '../abstracts/variables' as var;
+
+.footer {
+  &__logo {
+    height: 5.6rem;
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "title": "Проекты",
+  "description": "Мои проекты",
+  "order": 1,
+  "draft": false,
+  "body": [
+    {
+      "type": "hero-primary",
+      "title": "Проекты",
+      "subtitle": "Мои проекты"
+    },
+    {
+      "type": "portfolio",
+      "filter": [
+        {
+          "label": "Веб-приложение",
+          "category": "web-applications"
+        },
+        {
+          "label": "Лендинг",
+          "category": "landing-page"
+        },
+        {
+          "label": "Корпоративный сайт",
+          "category": "corporate-website"
+        }
+      ],
+      "portfolio-items": []
+    }
+  ]
+}

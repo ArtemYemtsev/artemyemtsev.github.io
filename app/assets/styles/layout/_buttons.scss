@@ -1,0 +1,43 @@
+@use '../abstracts/mixins' as mix;
+
+// Глобальные кнопки/ссылки-кнопки. Модификатор — отдельным классом
+// (class="button --primary"), в духе проекта. Под Nuxt-гамму primary — зелёная.
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  padding: 1.2rem 2.4rem;
+  border: 1px solid transparent;
+  border-radius: 0.8rem;
+  font-size: 1.6rem;
+  font-weight: 600;
+  line-height: 1;
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+  transition:
+    background-color 0.3s ease,
+    border-color 0.3s ease,
+    color 0.3s ease,
+    opacity 0.3s ease;
+
+  &.--primary {
+    background-color: var(--color-green-400);
+    color: var(--bg-main);
+
+    &:hover {
+      background-color: var(--color-green-500);
+    }
+  }
+
+  &.--secondary {
+    border-color: var(--border-primary);
+    color: var(--font-main);
+
+    &:hover {
+      border-color: var(--font-accent);
+      color: var(--font-accent);
+    }
+  }
+}

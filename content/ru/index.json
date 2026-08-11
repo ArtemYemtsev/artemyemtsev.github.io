@@ -1,0 +1,77 @@
+{
+  "title": "Главная",
+  "description": "Артём Емцев — фронтенд-разработчик",
+  "draft": false,
+  "body": [
+    {
+      "type": "hero-primary",
+      "title": "Артём Емцев",
+      "subtitle": "Фронтенд-инженер",
+      "text": "Разрабатываю продуманные и быстрые решения на Vue, Webflow и WordPress, превращая дизайн в чистый, адаптивный и идеально точный код."
+    },
+    {
+      "type": "about-primary",
+      "title": "Коротко обо мне",
+      "text": "<p>Привет. Я фронтенд-разработчик с опытом более двух лет. Разрабатываю промо-сайты, корпоративные сайты и веб-приложения в экосистемах Vue, Nuxt, Webflow и WordPress. Регулярно расширяю свои знания и навыки.</p><p>Сейчас работаю фронтенд-инженером в креативном агентстве Solar Digital. Создаю промо- и корпоративные сайты на Webflow и WordPress по готовым макетам Figma, интегрирую анимации на базе библиотек вроде GSAP и других. Также участвую в командах разработки веб-приложений на Vue/Nuxt.</p><p>Свободное время провожу с семьёй, за просмотром сериалов и помогая сыну записывать видео для YouTube. В ближайших планах — завести собственный блог о разработке и записывать видео для своего канала.</p>"
+    },
+    {
+      "type": "services-primary",
+      "title": "Чем я занимаюсь",
+      "text": "От промо-страницы до полноценного интерфейса продукта — вы выбираете формат, стек подбирается под задачу.",
+      "list": [
+        {
+          "icon": "landing-page-icon",
+          "title": "Лендинги",
+          "content": "Одностраничники под запуск или кампанию: быстрая загрузка, чистая структура, читаемость на любом экране. На Webflow или в ручной вёрстке — смотря как часто планируете править."
+        },
+        {
+          "icon": "corporate-website-icon",
+          "title": "Корпоративные сайты",
+          "content": "Многостраничники на WordPress или Webflow с CMS под капотом, чтобы команда правила контент без разработчика."
+        },
+        {
+          "icon": "web-application-icon",
+          "title": "Веб-приложения",
+          "content": "Интерфейсы продукта на Vue и Nuxt — компонентная архитектура, управление состоянием и SSR, когда страницам нужна выдача."
+        },
+        {
+          "icon": "code-markup-icon",
+          "title": "Figma → Code",
+          "content": "Готовый макет, превращённый в чистую адаптивную вёрстку — попиксельно точную, семантичную и готовую к подключению вашего бэкенда."
+        }
+      ]
+    },
+    {
+      "type": "technologies",
+      "title": "Стек технологий",
+      "subtitle": "Технологии и фреймворки, которые помогают воплощать смелые идеи в жизнь",
+      "technologies": [
+        { "name": "Figma", "icon": "figma-icon" },
+        { "name": "WebFlow", "icon": "webflow-icon" },
+        { "name": "Vue.js", "icon": "vue-js-icon" },
+        { "name": "TypeScript", "icon": "typescript-icon" },
+        { "name": "JavaScript", "icon": "javascript-icon" },
+        { "name": "CSS3", "icon": "css-3-icon" },
+        { "name": "HTML", "icon": "html-5-icon" },
+        { "name": "Pinia", "icon": "pinia-icon" },
+        { "name": "Nuxt.js", "icon": "nuxt-js-icon" },
+        { "name": "jQuery", "icon": "jquery-icon" },
+        { "name": "Gulp.js", "icon": "gulp-js-icon" },
+        { "name": "Vite", "icon": "vite-icon" },
+        { "name": "Sass, LESS", "icon": "sass-icon" },
+        { "name": "PHP", "icon": "php-icon" },
+        { "name": "MySQL", "icon": "my-sql-icon" },
+        { "name": "WordPress", "icon": "wordpress-icon" },
+        { "name": "WordPress ACF", "icon": "wordpress-acf-icon" },
+        { "name": "Strapi CMS", "icon": "strapi-cms-icon" },
+        { "name": "Git", "icon": "git-icon" },
+        { "name": "GitHub", "icon": "github-icon" },
+        { "name": "Google Analitics", "icon": "google-analitics-icon" },
+        { "name": "Slack", "icon": "slack-icon" },
+        { "name": "Worksection", "icon": "worksection-icon" },
+        { "name": "Trello", "icon": "trello-icon" },
+        { "name": "GSAP", "icon": "gsap-icon" }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+@use '../abstracts/mixins' as mix;
+@use '../abstracts/variables' as var;
+
+h1 {
+  font-size: var(--h1-font-size);
+}
+h2 {
+  font-size: var(--h2-font-size);
+}
+h3 {
+  font-size: var(--h3-font-size);
+}

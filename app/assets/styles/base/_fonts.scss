@@ -1,0 +1,7 @@
+// Самохостинг шрифтов — без внешних запросов к Google (приватность/GDPR + скорость).
+// Файлы лежат в public/fonts/; путь задаётся через $font-path в abstracts/_mixins.scss.
+@use '../abstracts/mixins' as m;
+
+// Inter — вариативный (ось насыщенности 100–900), полный набор глифов вкл. кириллицу.
+// Один файл покрывает все веса; курсив при необходимости добавим отдельным @font-face.
+@include m.font-face('Inter', 'InterVariable', 100 900, normal, woff2);

@@ -1,0 +1,31 @@
+{
+  "title": "Projects",
+  "description": "My projects",
+  "order": 1,
+  "draft": false,
+  "body": [
+    {
+      "type": "hero-primary",
+      "title": "Projects",
+      "subtitle": "My projects"
+    },
+    {
+      "type": "portfolio",
+      "filter": [
+        {
+          "label": "Web application",
+          "category": "web-applications"
+        },
+        {
+          "label": "Landing page",
+          "category": "landing-page"
+        },
+        {
+          "label": "Corporate website",
+          "category": "corporate-website"
+        }
+      ],
+      "portfolio-items": []
+    }
+  ]
+}

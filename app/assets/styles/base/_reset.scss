@@ -1,0 +1,67 @@
+// Современный сброс браузерных стилей (на основе подходов Josh Comeau / Andy Bell).
+// Консервативный: НЕ обнуляем list-style и заголовки (font-size/weight) — их
+// использует markdown-контент блога. Маркеры списков убирают компоненты точечно.
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+// Снимаем внешние и внутренние отступы по умолчанию (проект — с нуля).
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  min-height: 100vh;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+// Медиа — блочные и не вылезают за контейнер.
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+// Формы наследуют типографику, а не имеют системную.
+input,
+button,
+textarea,
+select {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+
+a {
+  color: inherit;
+}
+
+// Длинные слова/URL не ломают вёрстку.
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}

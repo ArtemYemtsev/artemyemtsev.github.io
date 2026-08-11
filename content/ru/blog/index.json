@@ -1,0 +1,13 @@
+{
+  "title": "Блог",
+  "description": "Мой блог о фронтенд-разработке",
+  "order": 3,
+  "draft": true,
+  "body": [
+    {
+      "type": "hero-primary",
+      "title": "Блог",
+      "subtitle": "Мой личный блог о фронтенд-разработке"
+    }
+  ]
+}

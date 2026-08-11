@@ -1,0 +1,361 @@
+@use "sass:string";
+@use "sass:map";
+@use "sass:list";
+@use "sass:math";
+
+// Шрифты самохостятся из public/fonts/ → абсолютный путь от корня сайта
+// (надёжно резолвится на статике и на Vercel; baseURL = '/').
+$font-path: "/fonts/";
+
+// String Replace
+@function str-replace($string, $search, $replace: "") {
+  $index: string.index($string, $search);
+
+  @if $index {
+    @return string.slice($string, 1, $index - 1) + $replace +
+      str-replace(
+        string.slice($string, $index + string.length($search)),
+        $search,
+        $replace
+      );
+  }
+
+  @return $string;
+}
+
+// Font Face
+@mixin font-face($name, $path, $weight: null, $style: null, $exts: eot woff2 woff ttf svg) {
+  $src: ();
+
+  $extmods: (
+    eot: "?",
+    svg: "#" + str-replace($name, " ", "_"),
+  );
+
+  $formats: (
+    otf: "opentype",
+    ttf: "truetype",
+  );
+
+  @each $ext in $exts {
+    $extmod: if(map.has-key($extmods, $ext), "#{$ext}#{map.get($extmods, $ext)}", $ext);
+    $format: if(map.has-key($formats, $ext), map.get($formats, $ext), $ext);
+
+    $src: list.append(
+      $src,
+      url("#{$font-path}#{$path}.#{$extmod}") format("#{$format}"),
+      comma
+    );
+  }
+
+  @font-face {
+    font-family: "#{$name}";
+    font-style: $style;
+    font-weight: $weight;
+    src: $src;
+    font-display: swap;
+  }
+}
+
+//Example
+//@include font-face(Samplinal, fonts/Samplinal, 500, normal, eot woff2 woff);
+
+@mixin normalize-list() {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
+
+// mobile first (small query should be write first, then larger)
+$sm: 480px;
+$md: 768px;
+$lg: 1024px;
+$xl: 1280px;
+$xl2: 1440px;
+$xl3: 1600px;
+$xl4: 1920px;
+$xl5: 2560px;
+
+@mixin min-width($breakpoint) {
+  @if $breakpoint == sm {
+    @media only screen and (min-width: $sm) {
+      @content;
+    }
+  }
+  @if $breakpoint == md {
+    @media only screen and (min-width: $md) {
+      @content;
+    }
+  }
+  @if $breakpoint == lg {
+    @media only screen and (min-width: $lg) {
+      @content;
+    }
+  }
+  @if $breakpoint == xl {
+    @media only screen and (min-width: $xl) {
+      @content;
+    }
+  }
+  @if $breakpoint == 2xl {
+    @media only screen and (min-width: $xl2) {
+      @content;
+    }
+  }
+  @if $breakpoint == 3xl {
+    @media only screen and (min-width: $xl3) {
+      @content;
+    }
+  }
+  @if $breakpoint == 4xl {
+    @media only screen and (min-width: $xl4) {
+      @content;
+    }
+  }
+  @if $breakpoint == 5xl {
+    @media only screen and (min-width: $xl5) {
+      @content;
+    }
+  }
+}
+
+//aspect-ratio
+@mixin aspect-ratio($width, $height) {
+  @if $width == 0 and $height == 0 {
+    aspect-ratio: unset;
+
+    @supports not (aspect-ratio: 1 / 1) {
+      &::before,
+      &::after {
+        display: none;
+      }
+    }
+    
+  } @else {
+    aspect-ratio: math.div($width, $height);
+
+    @supports not (aspect-ratio: 1 / 1) {
+      &::before {
+        float: left;
+        padding-top: calc(100% * #{$height} / #{$width});
+        content: "";
+      }
+      &::after {
+        display: block;
+        content: "";
+        clear: both;
+      }
+    }
+  }
+}
+
+@mixin scrollbar-horizontal($thumb-color, $track-color, $thumb-hover-color, $scrollbar-height: 12px) {
+  &::-webkit-scrollbar {
+    height: $scrollbar-height;
+    background-color: $track-color;
+    border-radius: 6px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: $thumb-color;
+    border-radius: 6px;
+    border: none;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background-color: $thumb-hover-color;
+  }
+
+  scrollbar-width: thin;
+  scrollbar-color: $thumb-color $track-color;
+}
+
+@mixin scrollbar-vertical($thumb-color, $track-color, $thumb-hover-color, $scrollbar-width: 12px) {
+  &::-webkit-scrollbar {
+    width: $scrollbar-width;
+    background-color: $track-color;
+    border-radius: 6px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: $thumb-color;
+    border-radius: 6px;
+    border: 3px solid $track-color;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background-color: $thumb-hover-color;
+  }
+
+  scrollbar-width: thin;
+  scrollbar-color: $thumb-color $track-color;
+}
+
+// offsets
+@mixin section-offset {
+  margin-top: 100px;
+  margin-bottom: 100px;
+
+  @include min-width(lg) {
+    margin-top: 120px;
+    margin-bottom: 120px;
+  }
+}
+
+// typography
+// typography
+@mixin heading {
+  font-family: 'Cormorant';
+  text-transform: uppercase;
+  font-weight: 600;
+  margin: 0;
+  line-height: 1.1;
+
+  @include min-width(md) {
+    letter-spacing: -1px;
+  }
+}
+
+@mixin large-header {
+  font-size: 32px;
+  @include heading();
+
+  @include min-width(md) {
+    font-size: 40px;
+  }
+
+  @include min-width(lg) {
+    font-size: 46px;
+  }
+
+  @include min-width(xl) {
+    font-size: 58px;
+  }
+}
+
+@mixin h1 {
+  font-size: 26px;
+  @include heading();
+
+  @include min-width(md) {
+    font-size: 32px;
+  }
+
+  @include min-width(lg) {
+    font-size: 40px;
+  }
+
+  @include min-width(xl) {
+    font-size: 46px;
+  }
+}
+
+@mixin h2 {
+  font-size: 36px;
+  @include heading();
+}
+
+
+// inputs
+@mixin styled-input-radio {
+  display: none;
+
+  &:checked + span,
+  &:checked + label {
+    &:after {
+      opacity: 1;
+    }
+  }
+
+  & + span,
+  & + label {
+    position: relative;
+    z-index: 1;
+    padding-left: 29px;
+
+    &:before {
+      content: "";
+      position: absolute;
+      z-index: 1;
+      left: 0;
+      top: -2px;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      border: 1px solid $border-primary;
+    }
+
+    &:after {
+      content: "";
+      position: absolute;
+      z-index: 2;
+      background-color: $bg-quaternary;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      left: 4px;
+      top: 2px;
+      opacity: 0;
+      transition: opacity .3s ease-in-out;
+    }
+  }
+}
+
+@mixin styled-input-checkbox {
+  display: none;
+
+  &:checked + span,
+  &:checked + label {
+    &:after {
+      opacity: 1;
+    }
+  }
+
+  & + span,
+  & + label {
+    position: relative;
+    z-index: 1;
+    padding-left: 28px;
+
+    @include min-width(md) {
+      padding-left: 33px;
+    }
+
+    &:before {
+      content: "";
+      position: absolute;
+      z-index: 1;
+      left: 0;
+      top: 0;
+      width: 14px;
+      height: 14px;
+      border: 1px solid $border-primary;
+
+      @include min-width(md) {
+        top: -2px;
+        width: 18px;
+        height: 18px;
+      }
+    }
+
+    &:after {
+      content: "";
+      position: absolute;
+      z-index: 2;
+      background-color: $bg-quaternary;
+      width: 10px;
+      height: 10px;
+      opacity: 0;
+      left: 3px;
+      top: 3px;
+      transition: opacity .3s ease-in-out;
+
+      @include min-width(md) {
+        width: 12px;
+        height: 12px;
+        left: 4px;
+        top: 2px;
+      }
+    }
+  }
+}

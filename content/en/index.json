@@ -1,0 +1,152 @@
+{
+  "title": "Home",
+  "description": "Artem Yemtsev - front end developer",
+  "draft": false,
+  "body": [
+    {
+      "type": "hero-primary",
+      "title": "Artem Yemtsev",
+      "subtitle": "Front End Engineer",
+      "text": "I develop thoughtful and fast solutions on Vue, Webflow, and WordPress, turning designs into clean, responsive, and perfectly accurate code."
+    },
+    {
+      "type": "about-primary",
+      "title": "Briefly about me",
+      "text": "<p>Hello. I am a front-end developer with over two years of experience. I develop promotional websites, corporate websites, and web applications in the Vue, Nuxt, Webflow, and WordPress ecosystems. I regularly expand my knowledge and skills.</p><p>I currently work as a front-end engineer at the creative agency Solar Digital. I create promotional websites and corporate websites based on Webflow and WordPress using ready-made Figma designs and library-based animation integrations such as GSAP and others. I also participate in web application development teams using Vue/Nuxt.</p><p>I spend my free time with my family, watching TV series, and helping my son record videos for YouTube. My immediate plans are to start my own blog on development and record videos for my channel.</p>"
+    },
+    {
+      "type": "services-primary",
+      "title": "What I Do",
+      "text": "From a single promo page to a full product interface — you pick the format, the stack follows the task.",
+      "list": [
+        {
+          "icon": "landing-page-icon",
+          "title": "Landing Pages",
+          "content": "One-page promos built around a launch or a campaign: fast load, clean structure, readable on any screen. On Webflow or hand-coded, depending on how often you plan to edit it."
+        },
+        {
+          "icon": "corporate-website-icon",
+          "title": "Corporate Websites",
+          "content": "Multi-page sites on WordPress or Webflow with a CMS behind them, so your team edits content without calling a developer."
+        },
+        {
+          "icon": "web-application-icon",
+          "title": "Web Applications",
+          "content": "Product interfaces on Vue and Nuxt — component architecture, state management, and SSR when the pages need to rank."
+        },
+        {
+          "icon": "code-markup-icon",
+          "title": "Figma → Code",
+          "content": "A finished design turned into clean, responsive markup — pixel-accurate, semantic, and ready to plug into your own backend."
+        }
+      ]
+    },
+    {
+      "type": "technologies",
+      "title": "Technology stack",
+      "subtitle": "Technologies and frameworks that help bring bold ideas to life",
+      "technologies": [
+        {
+          "name": "Figma",
+          "icon": "figma-icon"
+        },
+        {
+          "name": "WebFlow",
+          "icon": "webflow-icon"
+        },
+        {
+          "name": "Vue.js",
+          "icon": "vue-js-icon"
+        },
+        {
+          "name": "TypeScript",
+          "icon": "typescript-icon"
+        },
+        {
+          "name": "JavaScript",
+          "icon": "javascript-icon"
+        },
+        {
+          "name": "CSS3",
+          "icon": "css-3-icon"
+        },
+        {
+          "name": "HTML",
+          "icon": "html-5-icon"
+        },
+        {
+          "name": "Pinia",
+          "icon": "pinia-icon"
+        },
+        {
+          "name": "Nuxt.js",
+          "icon": "nuxt-js-icon"
+        },
+        {
+          "name": "jQuery",
+          "icon": "jquery-icon"
+        },
+        {
+          "name": "Gulp.js",
+          "icon": "gulp-js-icon"
+        },
+        {
+          "name": "Vite",
+          "icon": "vite-icon"
+        },
+        {
+          "name": "Sass, LESS",
+          "icon": "sass-icon"
+        },
+        {
+          "name": "PHP",
+          "icon": "php-icon"
+        },
+        {
+          "name": "MySQL",
+          "icon": "my-sql-icon"
+        },
+        {
+          "name": "WordPress",
+          "icon": "wordpress-icon"
+        },
+        {
+          "name": "WordPress ACF",
+          "icon": "wordpress-acf-icon"
+        },
+        {
+          "name": "Strapi CMS",
+          "icon": "strapi-cms-icon"
+        },
+        {
+          "name": "Git",
+          "icon": "git-icon"
+        },
+        {
+          "name": "GitHub",
+          "icon": "github-icon"
+        },
+        {
+          "name": "Google Analitics",
+          "icon": "google-analitics-icon"
+        },
+        {
+          "name": "Slack",
+          "icon": "slack-icon"
+        },
+        {
+          "name": "Worksection",
+          "icon": "worksection-icon"
+        },
+        {
+          "name": "Trello",
+          "icon": "trello-icon"
+        },
+        {
+          "name": "GSAP",
+          "icon": "gsap-icon"
+        }
+      ]
+    }
+  ]
+}

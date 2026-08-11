@@ -1,0 +1,38 @@
+{
+  "title": "Контакти",
+  "description": "Сторінка контактів",
+  "order": 4,
+  "draft": false,
+  "body": [
+    {
+      "type": "hero-primary",
+      "title": "Контакти",
+      "subtitle": "Зв'яжіться зі мною зручним для вас способом"
+    },
+    {
+      "type": "contacts",
+      "contacts": [
+        {
+          "title": "Telegram",
+          "icon": "telegram-icon",
+          "link": "https://t.me/yemtsev_a"
+        },
+        {
+          "title": "LinkedIn",
+          "icon": "linkedin-icon",
+          "link": "https://www.linkedin.com/in/artem-yemtsev-b18330274/"
+        },
+        {
+          "title": "Instagram",
+          "icon": "instagram-icon",
+          "link": "https://www.instagram.com/artem_frontend_dev/"
+        },
+        {
+          "title": "Email",
+          "icon": "email-icon",
+          "link": "mailto:tema2201@gmail.com"
+        }
+      ]
+    }
+  ]
+}

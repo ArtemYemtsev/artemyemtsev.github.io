@@ -1,6 +1,8 @@
 {
-  "title": "blog",
+  "title": "Blog",
   "description": "First blog page",
+  "order": 3,
+  "draft": true,
   "body": [
     {
       "type": "hero-primary",

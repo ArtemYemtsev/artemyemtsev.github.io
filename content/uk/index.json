@@ -1,0 +1,77 @@
+{
+  "title": "Головна",
+  "description": "Артем Ємцев — фронтенд-розробник",
+  "draft": false,
+  "body": [
+    {
+      "type": "hero-primary",
+      "title": "Артем Ємцев",
+      "subtitle": "Фронтенд-інженер",
+      "text": "Розробляю продумані та швидкі рішення на Vue, Webflow і WordPress, перетворюючи дизайн на чистий, адаптивний та ідеально точний код."
+    },
+    {
+      "type": "about-primary",
+      "title": "Коротко про мене",
+      "text": "<p>Привіт. Я фронтенд-розробник із досвідом понад два роки. Розробляю промо-сайти, корпоративні сайти та веб-застосунки в екосистемах Vue, Nuxt, Webflow і WordPress. Регулярно розширюю свої знання та навички.</p><p>Зараз працюю фронтенд-інженером у креативному агентстві Solar Digital. Створюю промо- та корпоративні сайти на Webflow і WordPress за готовими макетами Figma, інтегрую анімації на базі бібліотек на кшталт GSAP та інших. Також беру участь у командах розробки веб-застосунків на Vue/Nuxt.</p><p>Вільний час проводжу з родиною, за переглядом серіалів і допомагаючи синові записувати відео для YouTube. У найближчих планах — завести власний блог про розробку та записувати відео для свого каналу.</p>"
+    },
+    {
+      "type": "services-primary",
+      "title": "Чим я займаюся",
+      "text": "Від промо-сторінки до повноцінного інтерфейсу продукту — ви обираєте формат, стек добирається під задачу.",
+      "list": [
+        {
+          "icon": "landing-page-icon",
+          "title": "Лендінги",
+          "content": "Односторінківки під запуск або кампанію: швидке завантаження, чиста структура, читабельність на будь-якому екрані. На Webflow або в ручній верстці — залежно від того, як часто плануєте правити."
+        },
+        {
+          "icon": "corporate-website-icon",
+          "title": "Корпоративні сайти",
+          "content": "Багатосторінкові сайти на WordPress або Webflow з CMS під капотом, щоб команда правила контент без розробника."
+        },
+        {
+          "icon": "web-application-icon",
+          "title": "Вебзастосунки",
+          "content": "Інтерфейси продукту на Vue та Nuxt — компонентна архітектура, керування станом і SSR, коли сторінкам потрібна видача."
+        },
+        {
+          "icon": "code-markup-icon",
+          "title": "Figma → Code",
+          "content": "Готовий макет, перетворений на чисту адаптивну верстку — попіксельно точну, семантичну та готову до підключення вашого бекенду."
+        }
+      ]
+    },
+    {
+      "type": "technologies",
+      "title": "Стек технологій",
+      "subtitle": "Технології та фреймворки, що допомагають втілювати сміливі ідеї в життя",
+      "technologies": [
+        { "name": "Figma", "icon": "figma-icon" },
+        { "name": "WebFlow", "icon": "webflow-icon" },
+        { "name": "Vue.js", "icon": "vue-js-icon" },
+        { "name": "TypeScript", "icon": "typescript-icon" },
+        { "name": "JavaScript", "icon": "javascript-icon" },
+        { "name": "CSS3", "icon": "css-3-icon" },
+        { "name": "HTML", "icon": "html-5-icon" },
+        { "name": "Pinia", "icon": "pinia-icon" },
+        { "name": "Nuxt.js", "icon": "nuxt-js-icon" },
+        { "name": "jQuery", "icon": "jquery-icon" },
+        { "name": "Gulp.js", "icon": "gulp-js-icon" },
+        { "name": "Vite", "icon": "vite-icon" },
+        { "name": "Sass, LESS", "icon": "sass-icon" },
+        { "name": "PHP", "icon": "php-icon" },
+        { "name": "MySQL", "icon": "my-sql-icon" },
+        { "name": "WordPress", "icon": "wordpress-icon" },
+        { "name": "WordPress ACF", "icon": "wordpress-acf-icon" },
+        { "name": "Strapi CMS", "icon": "strapi-cms-icon" },
+        { "name": "Git", "icon": "git-icon" },
+        { "name": "GitHub", "icon": "github-icon" },
+        { "name": "Google Analitics", "icon": "google-analitics-icon" },
+        { "name": "Slack", "icon": "slack-icon" },
+        { "name": "Worksection", "icon": "worksection-icon" },
+        { "name": "Trello", "icon": "trello-icon" },
+        { "name": "GSAP", "icon": "gsap-icon" }
+      ]
+    }
+  ]
+}

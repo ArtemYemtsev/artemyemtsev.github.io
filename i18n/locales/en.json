@@ -1,0 +1,11 @@
+{
+  "footer": {
+    "role": "Front-End Developer",
+    "rights": "All rights reserved."
+  },
+  "a11y": {
+    "switchLanguage": "Switch language",
+    "brandLogo": "Brand logo",
+    "toggleMenu": "Toggle menu"
+  }
+}

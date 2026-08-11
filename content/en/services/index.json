@@ -1,0 +1,13 @@
+{
+  "title": "Services",
+  "description": "My services",
+  "order": 2,
+  "draft": false,
+  "body": [
+    {
+      "type": "hero-primary",
+      "title": "Services",
+      "subtitle": "How I can help your project"
+    }
+  ]
+}

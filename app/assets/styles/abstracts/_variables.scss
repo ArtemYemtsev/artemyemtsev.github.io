@@ -1,0 +1,73 @@
+// $color-1: rgb(16, 71, 144);
+
+:root {
+  // container
+  --container-width: 160rem;
+  --container-offset: 16rem;
+  --container-offset-md: 6rem;
+  --container-offset-mobile: 1.6rem;
+
+  // main colors
+  --dark-gray: #333333;
+  --red: #EE393A;
+  --white: #FFFFFF;
+  --light-blue: #F2F4F8;
+
+  // font colors
+  --font-main: #E2E8F0;
+  --font-main-50: rgba(51, 51, 51, 0.5);
+  --font-white: #ffffff;
+  --font-accent: #00DC82;
+  --font-muted: #94A3B8;
+
+  // backgrounds
+  --bg-dark: #333333;
+  --bg-white: #FFFFFF;
+  --bg-light: #F2F4F8;
+  --bg-main: #000415;
+
+  // borders
+  --border-accent: #EE393A;
+  --border-primary: #E2E8F0;
+
+  // buttons colors
+  --btn-main: #EE393A;
+  --btn-hover: #CB2727;
+  --btn-disabled: rgba(51, 51, 51, 0.2);
+
+  // sizes
+  --screen-size-max: 160;
+  --screen-size-min: 37.5;
+  
+  // green
+--color-green-50: #effdf5;
+--color-green-100: #d9fbe8;
+--color-green-200: #b3f5d1;
+--color-green-300: #75edae;
+--color-green-400: #00dc82;
+--color-green-500: #00c16a;
+--color-green-600: #00a155;
+--color-green-700: #007f45;
+--color-green-800: #016538;
+--color-green-900: #0a5331;
+--color-green-950: #052e16;
+
+--color-green-200-20: rgba(179, 245, 209, 0.2);
+
+--color-bg: #000617;
+--font-f: #e2e8f0;
+
+  // adaptive font sizes 1 = 1rem = 10px see html font-size
+  --h1-max: 6;
+  --h1-min: 4.8;
+  --h1-font-size: clamp(var(--h1-min) * 1rem, ((var(--h1-min) - ((var(--h1-max) - var(--h1-min)) / (var(--screen-size-max) - var(--screen-size-min)) * var(--screen-size-min))) * 1rem + ((var(--h1-max) - var(--h1-min)) / (var(--screen-size-max) - var(--screen-size-min))) * 100vw), var(--h1-max) * 1rem);
+  --h2-max: 4;
+  --h2-min: 3.2;
+  --h2-font-size: clamp(var(--h2-min) * 1rem, ((var(--h2-min) - ((var(--h2-max) - var(--h2-min)) / (var(--screen-size-max) - var(--screen-size-min)) * var(--screen-size-min))) * 1rem + ((var(--h2-max) - var(--h2-min)) / (var(--screen-size-max) - var(--screen-size-min))) * 100vw), var(--h2-max) * 1rem);
+  --h3-max: 2.6;
+  --h3-min: 2.4;
+  --h3-font-size: clamp(var(--h3-min) * 1rem, ((var(--h3-min) - ((var(--h3-max) - var(--h3-min)) / (var(--screen-size-max) - var(--screen-size-min)) * var(--screen-size-min))) * 1rem + ((var(--h3-max) - var(--h3-min)) / (var(--screen-size-max) - var(--screen-size-min))) * 100vw), var(--h3-max) * 1rem);
+  --main-max: 2.2;
+  --main-min: 2;
+  --main-font-size: clamp(var(--main-min) * 1rem, ((var(--main-min) - ((var(--main-max) - var(--main-min)) / (var(--screen-size-max) - var(--screen-size-min)) * var(--screen-size-min))) * 1rem + ((var(--main-max) - var(--main-min)) / (var(--screen-size-max) - var(--screen-size-min))) * 100vw), var(--main-max) * 1rem);
+}

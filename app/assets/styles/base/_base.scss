@@ -1,0 +1,59 @@
+@use '../abstracts/mixins' as mix;
+@use '../abstracts/variables' as var;
+
+// Базовый сброс вынесен в base/_reset.scss (подключается раньше в main.scss).
+
+html {
+  font-size: 62.5%; //1rem = 10px; 10px/16px = 62.5%
+  scroll-behavior: smooth;
+  scroll-padding-top: 20rem;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.6rem;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  // color: var(--font-main);
+  // background-color: rgb(15, 23, 42);
+  background-color: var(--bg-main);
+  color: var(--font-main);
+  // Страховка от горизонтального скролла (декор/glow, выходящие за вьюпорт).
+  // Основную причину — непереносимое меню в хедере — решает бургер, см. Header.
+  overflow-x: clip;
+}
+
+.page-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.page-content {
+  flex: 1 1 auto;
+}
+
+.container {
+  max-width: var(--container-width);
+  padding-left: var(--container-offset-mobile);
+  padding-right: var(--container-offset-mobile);
+  margin: 0 auto;
+
+  @include mix.min-width(md) {
+    padding-left: var(--container-offset-md);
+    padding-right: var(--container-offset-md);
+  }
+
+  @include mix.min-width(2xl) {
+    padding-left: var(--container-offset);
+    padding-right: var(--container-offset);
+  }
+}
+
+.section-label {
+  font-size: 1.4rem;
+  font-weight: 700;
+  line-height: 1;
+  text-transform: uppercase;
+}
