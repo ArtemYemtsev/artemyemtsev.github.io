@@ -7,5 +7,25 @@
     "switchLanguage": "Switch language",
     "brandLogo": "Brand logo",
     "toggleMenu": "Toggle menu"
+  },
+  "form": {
+    "submit": "Send message",
+    "fields": {
+      "name": "Name",
+      "email": "Email",
+      "phone": "Phone",
+      "message": "Message"
+    },
+    "errors": {
+      "required": "This field is required",
+      "email": "Enter a valid email address",
+      "phone": "Enter a valid phone number"
+    },
+    "status": {
+      "sending": "Sending…",
+      "success": "Thanks! I'll get back to you shortly.",
+      "error": "Something went wrong. Please try again or email me directly.",
+      "notConfigured": "The form isn't connected yet — please email me directly for now."
+    }
   }
 }

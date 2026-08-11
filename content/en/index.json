@@ -147,6 +147,82 @@
           "icon": "gsap-icon"
         }
       ]
+    },
+    {
+      "type": "process-primary",
+      "title": "My Process",
+      "text": "Six steps from first call to post-launch support. No surprises in the middle.",
+      "steps": [
+        {
+          "title": "Discovery",
+          "content": "We talk through the goal, the audience and the constraints. I ask about deadlines, content readiness and who will maintain the site afterwards."
+        },
+        {
+          "title": "Planning",
+          "content": "Scope, structure and stack on paper: page list, block inventory and an estimate you can hold me to."
+        },
+        {
+          "title": "Development",
+          "content": "Markup, styles and integrations, built block by block — so you watch it take shape instead of waiting for a reveal."
+        },
+        {
+          "title": "Testing",
+          "content": "Cross-browser and device checks, Lighthouse pass, semantics and metadata reviewed against the real content."
+        },
+        {
+          "title": "Launch",
+          "content": "Deploy, domain and analytics, plus a short handover so you know where everything lives."
+        },
+        {
+          "title": "Support",
+          "content": "Fixes, content updates and small improvements after launch — by the hour or on a monthly retainer."
+        }
+      ]
+    },
+    {
+      "type": "cta-primary",
+      "title": "Let's build something great together.",
+      "button": {
+        "label": "Get in touch",
+        "link": "#contacts"
+      }
+    },
+    {
+      "type": "projects-primary",
+      "hidden": true,
+      "title": "Projects",
+      "text": "A selection of recent work.",
+      "linkLabel": "Open",
+      "items": []
+    },
+    {
+      "type": "contacts-simple",
+      "title": "Let's Talk",
+      "text": "Tell me about the project — what you need, when you need it, and I'll come back with a plan.",
+      "stepsTitle": "What happens next?",
+      "steps": [
+        {
+          "title": "Reply",
+          "content": "I get back to you within one business day — even if it's only to ask a clarifying question."
+        },
+        {
+          "title": "Intro call",
+          "content": "Thirty minutes to understand the goal, the audience and what's already been decided."
+        },
+        {
+          "title": "Scope",
+          "content": "Together we draw the line: what's in, what's out, and by when."
+        },
+        {
+          "title": "Proposal",
+          "content": "A written offer with options and an estimate you can actually plan around."
+        },
+        {
+          "title": "Kickoff",
+          "content": "We start building, and you see working pages from the first week."
+        }
+      ],
+      "endpoint": ""
     }
   ]
 }
