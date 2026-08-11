@@ -28,7 +28,14 @@ if (!page.value) {
 <template>
   <div class="page-content">
     <template v-if="Array.isArray(page?.body)">
-      <component :is="componentsMap[block.type]" v-for="(block, index) in page.body" :key="index" v-bind="block" />
+      <!-- `hidden: true` в блоке — способ держать готовые данные в контенте, но не
+           выводить секцию (например, пока не наполнено портфолио). -->
+      <component
+        :is="componentsMap[block.type]"
+        v-for="(block, index) in page.body.filter((b) => !b.hidden)"
+        :key="index"
+        v-bind="block"
+      />
     </template>
 
     <template v-else>
