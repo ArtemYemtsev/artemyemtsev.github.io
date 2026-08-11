@@ -51,6 +51,9 @@ npx eslint .       # линт
 - Стили — `<style lang="scss" scoped>`, BEM-нейминг (`block__element--modifier`).
 - HTML из контента выводится через `v-html` (см. `about-primary`), плоский текст — через `{{ }}`.
 
+### Скрытие блока
+Поле `"hidden": true` в блоке — способ держать готовые данные в контенте, но не выводить секцию. Фильтр стоит в [\[...slug\].vue](app/pages/%5B...slug%5D.vue) перед `v-for`. Используется для `projects-primary` на главной, пока портфолио не наполнено.
+
 ### Контент-файлы
 - **Контент разложен по локалям**: `content/<locale>/<slug>/index.json` → доступна по `/<locale>/<slug>`. Главная локали — `content/<locale>/index.json` → `/<locale>`. Локали: `en`, `ru`, `uk`.
 - Поля верхнего уровня документа: `title`, `description`, `order` (порядок в навигации), `draft` (скрыть), `body[]`.
@@ -75,7 +78,7 @@ npx eslint .       # линт
 - Миксины из `_mixins.scss` доступны в `scoped`-стилях компонентов **глобально** — через инжект `@use "@/assets/styles/abstracts/mixins" as *` в `vite.css.preprocessorOptions.scss.additionalData` ([nuxt.config.ts](nuxt.config.ts)). Отдельный `@use` в компоненте писать НЕ нужно. Инжект намеренно не льётся в `abstracts/` (иначе `mixins.scss` заимпортил бы себя). CSS-переменные (`--font-accent` и т.д.) глобальны и так — они в `:root` через `main.scss`.
 - Иконки — SVG-спрайт: `<svg><use :xlink:href="`/sprite.svg#<icon-name>`" /></svg>`. Файл — [public/sprite.svg](public/sprite.svg).
 - **Два набора иконок в спрайте, не смешивай в одном ряду.** Технологии/бренды — `viewBox="0 0 200 200"`, арт занимает ~50–60% коробки (широкий внутренний отступ). Соц/UI (`telegram-icon`, `linkedin-icon`, `instagram-icon`, `email-icon`) — `viewBox="0 0 24 24"`, арт заполняет ~85%. При одинаковых CSS-размерах `200`-иконка выглядит на ~40% мельче `24`-й. Если нужна `200`-иконка в соц-ряду — заводи вариант с подрезанным `viewBox` до ~84% заполнения (образец: `github-social-icon`, `viewBox="40 40 120 120"`), а не масштабируй трансформом.
-- Глобальные классы: `.container`, `.section-label`, `.button.--primary/--secondary`, `.underline-link`.
+- Глобальные классы: `.container`, `.section-label`, `.button.--primary/--secondary`. **`.underline-link` глобальным НЕ является** — вопреки прежней записи здесь он объявлен только в scoped-стилях [Header.vue](app/components/Layout/Header.vue) и [DemoUI/Buttons.vue](app/components/Section/DemoUI/Buttons.vue), то есть в других компонентах это пустой класс. Либо вынеси его в `app/assets/styles/layout/`, либо стилизуй ссылку локально.
 - Новые стили блоков держи в `scoped` внутри компонента; общие/layout-стили — в `app/assets/styles/layout/*` и подключай в `main.scss`.
 
 ## Важно про завершающий слэш в путях
@@ -96,6 +99,8 @@ npx eslint .       # линт
 - [ ] Коллизия `order`: и `about`, и `projects` имеют `order: 1` во всех локалях — порядок этих двух пунктов в меню недетерминирован. Развести нумерацию (например `about: 1`, `projects: 2`, `services: 3`, `blog: 4`, `contacts: 5`) сразу во всех трёх локалях.
 - [ ] Footer хардкодит контакты/соцссылки (дублируют `content/<locale>/contacts/index.json`).
 - [ ] GitHub Pages деплой не настроен (нет `app.baseURL`, nitro preset, GH Actions workflow). Учесть: репо — user-страница, `baseURL = '/'`.
+- [ ] **Форма не подключена к отправке.** [Contacts/Simple.vue](app/components/Section/Contacts/Simple.vue) свёрстан и валидируется, но `endpoint` в `content/<locale>/index.json` пустой — по submit форма честно пишет «канал не настроен», а не имитирует успех. **До мержа в `main` нужно либо задать `endpoint`, либо поставить блоку `hidden: true`**, иначе на живом сайте посетитель упрётся в нерабочую форму. Варианты канала — см. пункт про форму-бриф ниже.
+- [ ] `projects-primary` на главной скрыт (`hidden: true`), `items: []`. Разметка карточки готова и проверена (image / type / title / description / technologies / link). Ждёт наполнения + отдельной страницы проекта.
 - [ ] **Форма-бриф на сайте** (отложено): секция-блок с базовым брифом-заявкой (поля — см. [docs/client-brief.md](docs/client-brief.md), раздел «Сокращённый бриф для формы»). Свёрстать форму + валидацию по блочной системе. Открытый вопрос — **способ отправки** (сайт статический, бэкенда нет): варианты — Web3Forms/Formspree на email / Telegram-бот напрямую (токен светится в JS) / serverless-прокси → Telegram. Решить до реализации submit.
 
 ## Кастомные команды (`.claude/commands`)
