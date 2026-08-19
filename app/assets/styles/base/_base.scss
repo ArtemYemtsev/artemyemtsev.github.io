@@ -6,7 +6,8 @@
 html {
   font-size: 62.5%; //1rem = 10px; 10px/16px = 62.5%
   scroll-behavior: smooth;
-  scroll-padding-top: 20rem;
+  // Якоря не должны прятаться под фиксированной шапкой.
+  scroll-padding-top: calc(var(--header-offset) + 2rem);
 }
 
 body {
@@ -32,6 +33,9 @@ body {
 
 .page-content {
   flex: 1 1 auto;
+  // Компенсация fixed-шапки. Раньше её подменял padding-top у hero, поэтому
+  // markdown-посты блога (у них hero нет) уезжали под шапку.
+  padding-top: var(--header-offset);
 }
 
 .container {
@@ -56,4 +60,10 @@ body {
   font-weight: 700;
   line-height: 1;
   text-transform: uppercase;
+}
+
+// Пока открыта полноэкранная панель меню, страница под ней не должна скроллиться.
+// Класс вешает Header через useHead({ bodyAttrs }).
+body.is-menu-open {
+  overflow: hidden;
 }

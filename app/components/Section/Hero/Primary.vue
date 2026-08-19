@@ -4,6 +4,10 @@ const props = defineProps<{
   subtitle?: string,
   text?: string,
 }>()
+
+// Соцсети берём из общего источника (страница контактов), а не хардкодом:
+// здесь стояли три ссылки с href="#", которые никуда не вели.
+const { contacts } = useSiteContacts()
 </script>
 
 <template>
@@ -30,27 +34,13 @@ const props = defineProps<{
             <UiButton href="#contacts" variant="secondary" label="Связаться" />
           </div>
 
-          <ul class="hero__socials">
-            <li>
-              <a href="#" aria-label="Telegram">
-                <svg>
-                  <use :xlink:href="`/sprite.svg#telegram-icon`" />
-                </svg>
-              </a>
-            </li>
-            <li>
-              <a href="#" aria-label="LinkedIn">
-                <svg>
-                  <use :xlink:href="`/sprite.svg#linkedin-icon`" />
-                </svg>
-              </a>
-            </li>
-            <li>
-              <a href="#" aria-label="GitHub">
-                <svg>
-                  <use :xlink:href="`/sprite.svg#github-social-icon`" />
-                </svg>
-              </a>
+          <ul v-if="contacts.length" class="hero__socials">
+            <li v-for="contact in contacts" :key="contact.link">
+              <UiSocialLink
+                :href="contact.link || '#'"
+                :icon="contact.icon || ''"
+                :label="contact.title || ''"
+              />
             </li>
           </ul>
         </div>
@@ -70,14 +60,16 @@ const props = defineProps<{
 <style lang="scss" scoped>
 .hero {
   // min-height (а не height): на низких экранах контент не обрежется.
-  min-height: 100dvh;
-  padding-top: 9rem;
+  // Отступ под шапку даёт .page-content, поэтому вычитаем его из высоты экрана —
+  // иначе первый экран становится длиннее вьюпорта на высоту шапки.
+  min-height: calc(100dvh - var(--header-offset));
+  padding-top: 2rem;
   padding-bottom: 4rem;
   display: flex;
   flex-direction: column;
 
   @include min-width(md) {
-    padding-top: 12rem;
+    padding-top: 4rem;
   }
 
   // Растягиваем контейнер на высоту секции, чтобы работало вертикальное
@@ -161,33 +153,14 @@ const props = defineProps<{
     gap: 1.6rem;
   }
 
+  // Вид самих кнопок — глобальный .social-link (layout/_socials.scss),
+  // здесь только раскладка ряда.
   &__socials {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
-    gap: 1.6rem;
+    gap: 1.2rem;
     @include normalize-list;
-
-    & > li a {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 4.4rem;
-      height: 4.4rem;
-      color: var(--font-main);
-      opacity: 0.7;
-      transition: opacity 0.3s ease, color 0.3s ease;
-
-      &:hover {
-        opacity: 1;
-        color: var(--font-accent);
-      }
-
-      svg {
-        width: 2.6rem;
-        height: 2.6rem;
-        fill: currentColor;
-      }
-    }
   }
 
   &__media {

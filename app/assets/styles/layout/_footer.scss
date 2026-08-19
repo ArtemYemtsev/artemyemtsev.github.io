@@ -1,8 +1,153 @@
 @use '../abstracts/mixins' as mix;
 @use '../abstracts/variables' as var;
 
+// Футер сайта-резюме: сверху крупный призыв с почтой, ниже три колонки
+// (бренд/статус, навигация, контакты), внизу — копирайт.
+// Навигация и контакты берутся из контента (useLocaleNav/useSiteContacts),
+// а не хардкодятся — раньше футер расходился с content/<locale>/contacts.
 .footer {
+  margin-top: 12rem;
+  padding-bottom: 4rem;
+  // Мягкое зелёное свечение вместо белой линии: раньше границы было две подряд
+  // (у .footer и у .footer__bottom) — читалось как шов.
+  border-top: 0.1rem solid var(--color-green-200-20);
+  background:
+    radial-gradient(
+      ellipse 80% 60% at 50% 0%,
+      color-mix(in srgb, var(--color-green-400) 8%, transparent),
+      transparent 70%
+    );
+
+  &__cta {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    padding: 6rem 0 4.8rem;
+
+    @include mix.min-width(md) {
+      padding: 8rem 0 6.4rem;
+    }
+  }
+
+  &__cta-label {
+    font-size: 1.4rem;
+    font-weight: 700;
+    line-height: 1;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--font-accent);
+  }
+
+  &__cta-link {
+    // Крупная почта — главный элемент футера, поэтому шрифт заголовочного размера.
+    font-size: clamp(2.4rem, 5vw, 4.8rem);
+    font-weight: 600;
+    line-height: 1.2;
+    // rollup-слои приходят из .rollup-link; здесь только размер и перенос.
+    word-break: break-word;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 4rem;
+    padding-bottom: 4.8rem;
+
+    @include mix.min-width(md) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include mix.min-width(lg) {
+      // Колонка бренда шире: в ней логотип, роль, статус и соц-иконки.
+      grid-template-columns: 1.4fr 1fr 1fr;
+      gap: 6rem;
+    }
+  }
+
+  &__col {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.6rem;
+  }
+
   &__logo {
-    height: 5.6rem;
+    display: block;
+    height: 4.8rem;
+
+    img {
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+
+  &__role {
+    color: var(--font-muted);
+  }
+
+  &__status {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 0.4rem 1.2rem;
+    border: 0.1rem solid var(--color-green-200-20);
+    border-radius: 4rem;
+    font-size: 1.3rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--font-accent);
+
+    &-dot {
+      width: 0.8rem;
+      height: 0.8rem;
+      border-radius: 50%;
+      background-color: var(--color-green-400);
+    }
+  }
+
+  &__socials {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.2rem;
+    margin-top: 0.8rem;
+  }
+
+  &__title {
+    font-size: 1.4rem;
+    font-weight: 700;
+    line-height: 1;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--font-muted);
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    @include mix.normalize-list;
+  }
+
+  &__link {
+    color: var(--font-main);
+    text-decoration: none;
+    transition: color 0.3s ease;
+
+    &:hover,
+    &.router-link-exact-active {
+      color: var(--font-accent);
+    }
+  }
+
+  &__bottom {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1.6rem;
+    padding-top: 2.4rem;
+    border-top: 0.1rem solid var(--color-green-200-20);
+    font-size: 1.4rem;
+    color: var(--font-muted);
   }
 }

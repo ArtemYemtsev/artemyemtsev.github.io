@@ -1,0 +1,39 @@
+@use '../abstracts/mixins' as mix;
+
+// Соц-ссылка-иконка. Разметку генерит <UiSocialLink>, здесь только вид.
+.social-link {
+  @include mix.rollup($duration: 0.4s);
+
+  width: 4.4rem;
+  height: 4.4rem;
+  border: 0.1rem solid var(--color-green-200-20);
+  border-radius: 50%;
+  background-color: color-mix(in srgb, var(--font-main) 4%, transparent);
+  color: var(--font-main);
+  transition:
+    border-color 0.3s ease,
+    background-color 0.3s ease;
+
+  &__icon {
+    width: 2rem;
+    height: 2rem;
+    // Обязательно: у путей в спрайте своего fill нет, без currentColor иконки
+    // рисуются чёрными и на тёмном фоне пропадают (так и было в футере).
+    fill: currentColor;
+  }
+
+  .rollup__layer--hover {
+    color: var(--font-accent);
+  }
+
+  &:hover,
+  &:focus-visible {
+    border-color: var(--font-accent);
+    background-color: color-mix(in srgb, var(--color-green-400) 12%, transparent);
+  }
+
+  &:focus-visible {
+    outline: 0.2rem solid var(--font-accent);
+    outline-offset: 0.3rem;
+  }
+}

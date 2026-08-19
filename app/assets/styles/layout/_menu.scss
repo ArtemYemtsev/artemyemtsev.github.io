@@ -1,19 +1,130 @@
 @use '../abstracts/mixins' as mix;
 @use '../abstracts/variables' as var;
 
+// Полноэкранная мобильная панель. Лежит внутри .header, поэтому --z-below
+// уводит её под бар (бургер остаётся кликабельным), но всё ещё поверх контента:
+// .header — свой stacking context на --z-header.
+//
+// Прежняя выпадашка хардкодила --container-offset-mobile и на планшете
+// разъезжалась с .container (там уже --container-offset-md). Здесь сетку
+// держит сам .container, поэтому расхождения нет по построению.
 .menu {
-  &-header {
-    ul {
-      list-style: none;
-      display: flex;
-      gap: 2.4rem;
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-below);
+  display: flex;
+  flex-direction: column;
+  padding-top: var(--header-offset);
+  padding-bottom: 4rem;
+  background-color: color-mix(in srgb, var(--bg-main) 96%, transparent);
+  backdrop-filter: blur(2rem);
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.4s ease, visibility 0.4s;
 
-      li {
-        a {
-          text-decoration: none;
-          color: rgb(226, 232, 240);
-        }
-      }
+  // Панель нужна только там, где есть бургер.
+  @include mix.min-width(lg) {
+    display: none;
+  }
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    justify-content: space-between;
+    gap: 4rem;
+    overflow-y: auto;
+  }
+
+  &.--open {
+    visibility: visible;
+    opacity: 1;
+
+    .menu__item {
+      opacity: 1;
+      transform: none;
+      // --i приходит из шаблона (индекс пункта) — пункты проявляются каскадом.
+      transition-delay: calc(var(--i, 0) * 60ms);
+    }
+  }
+
+  &__nav {
+    padding-top: 2.4rem;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    @include mix.normalize-list;
+  }
+
+  &__item {
+    opacity: 0;
+    transform: translateY(1.6rem);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+  }
+
+  &__link {
+    display: inline-block;
+    padding: 0.8rem 0;
+    font-size: 3.2rem;
+    font-weight: 600;
+    line-height: 1.2;
+    color: var(--font-main);
+    text-decoration: none;
+    transition: color 0.3s ease;
+
+    &:hover,
+    &.router-link-exact-active {
+      color: var(--font-accent);
+    }
+  }
+
+  &__bottom {
+    display: flex;
+    flex-direction: column;
+    gap: 2.4rem;
+    padding-top: 2.4rem;
+    border-top: 0.1rem solid var(--color-green-200-20);
+  }
+
+  &__langs {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+  }
+
+  &__lang {
+    padding: 0.6rem 1.2rem;
+    border: 0.1rem solid var(--color-green-200-20);
+    border-radius: 5rem;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--font-main);
+    text-decoration: none;
+    transition: border-color 0.3s ease, color 0.3s ease;
+
+    &:hover,
+    &.--active {
+      border-color: var(--font-accent);
+      color: var(--font-accent);
+    }
+  }
+
+  &__socials {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.2rem;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    &__item {
+      transform: none;
+    }
+
+    &.--open .menu__item {
+      transition-delay: 0s;
     }
   }
 }

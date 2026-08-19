@@ -28,6 +28,11 @@
           "link": "https://www.instagram.com/artem_frontend_dev/"
         },
         {
+          "title": "GitHub",
+          "icon": "github-social-icon",
+          "link": "https://github.com/artemyemtsev"
+        },
+        {
           "title": "Email",
           "icon": "email-icon",
           "link": "mailto:tema2201@gmail.com"

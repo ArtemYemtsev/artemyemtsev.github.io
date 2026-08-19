@@ -78,6 +78,9 @@ const props = defineProps<{
     width: 2.4rem;
     height: 2.4rem;
     flex-shrink: 0;
+    // Без currentColor иконки спрайта рисуются чёрными (своего fill у путей нет)
+    // и на тёмном фоне пропадают.
+    fill: currentColor;
   }
 }
 </style>

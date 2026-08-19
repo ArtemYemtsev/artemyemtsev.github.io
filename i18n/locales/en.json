@@ -1,12 +1,18 @@
 {
   "footer": {
     "role": "Front-End Developer",
-    "rights": "All rights reserved."
+    "rights": "All rights reserved.",
+    "ctaLabel": "Let's work together",
+    "navTitle": "Navigation",
+    "contactsTitle": "Contacts",
+    "status": "Open to work",
+    "builtWith": "Built with Nuxt"
   },
   "a11y": {
     "switchLanguage": "Switch language",
     "brandLogo": "Brand logo",
-    "toggleMenu": "Toggle menu"
+    "toggleMenu": "Toggle menu",
+    "mainNav": "Main navigation"
   },
   "form": {
     "submit": "Send message",
