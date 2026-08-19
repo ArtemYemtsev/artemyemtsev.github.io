@@ -144,7 +144,7 @@ const props = defineProps<{
 
   &__marker {
     position: relative;
-    z-index: 1;
+    z-index: var(--z-base);
     display: flex;
     align-items: center;
     justify-content: center;

@@ -202,9 +202,9 @@ async function onSubmit() {
         </div>
 
         <div class="contacts-form__actions">
-          <button type="submit" class="button --primary" :disabled="status === 'sending'">
+          <UiButton type="submit" variant="primary" :disabled="status === 'sending'">
             {{ status === 'sending' ? $t('form.status.sending') : $t('form.submit') }}
-          </button>
+          </UiButton>
 
           <!-- role=status: сообщение появляется после действия, скринридер должен
                его озвучить, не перебивая ввод. -->

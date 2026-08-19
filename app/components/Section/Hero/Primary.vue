@@ -26,8 +26,8 @@ const props = defineProps<{
 
           <div class="hero__actions">
             <!-- TODO(контент): ссылки и лейблы CTA вынести в props/content -->
-            <a href="#" class="button --primary">Скачать CV</a>
-            <a href="#contacts" class="button --secondary">Связаться</a>
+            <UiButton href="#" variant="primary" label="Скачать CV" />
+            <UiButton href="#contacts" variant="secondary" label="Связаться" />
           </div>
 
           <ul class="hero__socials">
@@ -212,7 +212,7 @@ const props = defineProps<{
     // Градиентная рамка вокруг фото — тонкий зелёный контур сверху.
     &-frame {
       position: relative;
-      z-index: 1;
+      z-index: var(--z-base);
       width: 100%;
       max-width: 42rem;
       padding: 0.1rem;

@@ -359,3 +359,107 @@ $xl5: 2560px;
     }
   }
 }
+
+// rollup — универсальная hover-анимация «перемотки» подписи.
+//
+// Подключается на САМ триггер (.button, .rollup-link — то, что ловит :hover),
+// а внутри него ждёт два слоя-дубля подписи:
+//
+//   <button class="button">
+//     <span class="rollup__layer rollup__layer--base">Label</span>
+//     <span class="rollup__layer rollup__layer--hover" aria-hidden="true">Label</span>
+//   </button>
+//
+// Разметку генерит app/components/Ui/Button.vue — руками её писать не нужно.
+// Второй слой обязан быть aria-hidden: он чистый кадр анимации, иначе
+// скринридер прочитает подпись дважды.
+//
+// Механика: слои лежат в одной grid-ячейке, поэтому триггер сам берёт размер по
+// большему из них — без абсолютного позиционирования и фиксированных высот.
+// Нижний слой стоит на +100% (за границей overflow), по ховеру оба уезжают
+// вверх на высоту строки: верхний уходит, нижний встаёт на его место.
+//
+// ВАЖНО: паддинги вешай на .rollup__layer, а не на триггер — слой должен
+// закрывать его целиком, иначе на ховере из-под слоя выглядывает фон-подложка.
+//
+// $clip: true — «мастеркард»-вариант: въезжающий слой дополнительно
+// раскрывается из центра пилюлей ($clip-radius должен совпасть с border-radius).
+@mixin rollup(
+  $duration: 0.5s,
+  $easing: cubic-bezier(0.165, 0.84, 0.44, 1),
+  $clip: false,
+  $clip-radius: 5rem
+) {
+  display: inline-grid;
+  overflow: hidden;
+
+  .rollup__layer {
+    grid-area: 1 / 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    // Не 1: при line-height: 1 нижние выносные (у, р, g) режутся overflow.
+    line-height: 1.5;
+    transition: transform $duration $easing;
+  }
+
+  .rollup__layer--hover {
+    transform: translateY(100%);
+
+    @if $clip {
+      clip-path: inset(0 calc(50% - #{$clip-radius}) round #{$clip-radius});
+      transition:
+        transform $duration $easing,
+        clip-path $duration $easing;
+    }
+  }
+
+  // Отключённую кнопку не анимируем. Условие висит прямо на ховер-селекторах,
+  // а не отдельным правилом на :disabled: у модификаторов (.button.--pill)
+  // специфичность выше, и их ховер такое правило перебил бы.
+  //
+  // Ховер гасим и на тач-устройствах: там :hover «залипает» после тапа и кнопка
+  // остаётся в перевёрнутом состоянии. Клавиатурный фокус — отдельным правилом.
+  @media (hover: hover) {
+    &:not(:disabled):hover .rollup__layer--base {
+      transform: translateY(-100%);
+    }
+
+    &:not(:disabled):hover .rollup__layer--hover {
+      transform: translateY(0);
+
+      @if $clip {
+        clip-path: inset(0 0 round #{$clip-radius});
+      }
+    }
+  }
+
+  &:not(:disabled):focus-visible .rollup__layer--base {
+    transform: translateY(-100%);
+  }
+
+  &:not(:disabled):focus-visible .rollup__layer--hover {
+    transform: translateY(0);
+
+    @if $clip {
+      clip-path: inset(0 0 round #{$clip-radius});
+    }
+  }
+
+  // Просили не двигать — не двигаем: слой-дубль просто выключается, отклик на
+  // ховер консьюмер даёт цветом (см. .button.--primary в layout/_buttons.scss).
+  @media (prefers-reduced-motion: reduce) {
+    .rollup__layer {
+      transition: none;
+    }
+
+    .rollup__layer--hover {
+      display: none;
+    }
+
+    &:not(:disabled):hover .rollup__layer--base,
+    &:not(:disabled):focus-visible .rollup__layer--base {
+      transform: none;
+    }
+  }
+}

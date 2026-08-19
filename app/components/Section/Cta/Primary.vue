@@ -18,15 +18,16 @@ const props = defineProps<{
         <h2 v-if="props.title" class="cta__title">{{ props.title }}</h2>
         <p v-if="props.text" class="cta__text">{{ props.text }}</p>
 
-        <NuxtLink
+        <UiButton
           v-if="props.button?.label"
           :to="props.button.link || '#contacts'"
-          class="button --primary cta__button"
+          variant="primary"
+          class="cta__button"
         >
           {{ props.button.label }}
           <!-- Стрелка декоративная: смысл несёт сам лейбл, скринридеру она лишняя. -->
           <span class="cta__arrow" aria-hidden="true">&rarr;</span>
-        </NuxtLink>
+        </UiButton>
       </div>
     </div>
   </section>
@@ -73,13 +74,13 @@ const props = defineProps<{
 
   &__title {
     position: relative;
-    z-index: 1;
+    z-index: var(--z-base);
     max-width: 68rem;
   }
 
   &__text {
     position: relative;
-    z-index: 1;
+    z-index: var(--z-base);
     max-width: 56rem;
     margin-top: 1.6rem;
     color: var(--font-muted);
@@ -87,8 +88,7 @@ const props = defineProps<{
 
   &__button {
     position: relative;
-    z-index: 1;
-    gap: 0.8rem;
+    z-index: var(--z-base);
     margin-top: 3.2rem;
 
     // Стрелка подъезжает вперёд по ховеру — микро-отклик без layout shift.

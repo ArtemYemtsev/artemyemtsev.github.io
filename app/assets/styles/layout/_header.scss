@@ -8,6 +8,9 @@
   top: 0;
   right: 0;
   left: 0;
+  // Шапка всегда поверх контента, но ниже модалок и тостов.
+  // Шкала слоёв — abstracts/_variables.scss, числом z-index здесь не пиши.
+  z-index: var(--z-header);
 
   &-inner {
     display: flex;
